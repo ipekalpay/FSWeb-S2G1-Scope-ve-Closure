@@ -30,6 +30,8 @@ console.log('örnek görev:', ilkiniDon(['as','sa'],function(metin){return metin
   Aşağıdaki skor1 ve skor2 kodlarını inceleyiniz ve aşağıdaki soruları altına not alarak cevaplayın
   
   1. skor1 ve skor2 arasındaki fark nedir?
+
+
   
   2. Hangisi bir closure kullanmaktadır? Nasıl tarif edebilirsin? (yarınki derste öğreneceksin :) )
   
@@ -64,10 +66,10 @@ Aşağıdaki takimSkoru() fonksiyonununda aşağıdakileri yapınız:
 Not: Bu fonskiyon, aşağıdaki diğer görevler için de bir callback fonksiyonu olarak da kullanılacak
 */
 
-function takimSkoru(/*Kodunuzu buraya yazınız*/){
-    /*Kodunuzu buraya yazınız*/
+function takimSkoru() {
+  var skor = Math.floor(Math.random() * 16) + 10;
+  return skor;
 }
-
 
 
 
@@ -86,11 +88,24 @@ Aşağıdaki macSonucu() fonksiyonununda aşağıdakileri yapınız:
 }
 */ 
 
-function macSonucu(/*Kodunuzu buraya yazınız*/){
-  /*Kodunuzu buraya yazınız*/
+
+
+function macSonucu(takimSkoru, ceyrekSayisi) {
+  let skor = {
+    "EvSahibi": 0,
+    "KonukTakim": 0
+  };
+
+  for (let i = 0; i < ceyrekSayisi; i++) {
+    let evSahibiSkor = takimSkoru();
+    let konukTakimSkor = takimSkoru();
+
+    skor.EvSahibi += evSahibiSkor;
+    skor.KonukTakim += konukTakimSkor;
+  }
+
+  return skor;
 }
-
-
 
 
 
@@ -109,9 +124,13 @@ Aşağıdaki periyotSkoru() fonksiyonununda aşağıdakileri yapınız:
   */
 
 
-function periyotSkoru(/*Kodunuzu buraya yazınız*/) {
-  /*Kodunuzu buraya yazınız*/
+function periyotSkoru(takimSkoru) {
+  var skor = {
+    "EvSahibi": takimSkoru(),
+    "KonukTakim": takimSkoru()
+  };
 
+  return skor;
 }
 
 
